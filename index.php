@@ -60,6 +60,7 @@
         
         $groupArray = array(); //array to store group list
         $filter = "(|(displayname=$uname*)(givenname=$uname*)(cn=$uname*)(userprincipalname=$uname*))";
+        //search for user and gather groups user is member of
         $search = ldap_search($ldap, $dn, $filter);
         $data = ldap_get_entries($ldap, $search);
         $groupTotal = @$data[0]['memberof']['count'];
