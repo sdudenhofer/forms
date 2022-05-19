@@ -89,8 +89,8 @@
         }elseif(in_array("OR1706_Info Tech Dept_", $groupArray, true)){
           session_start();
           setcookie('pyxisrequest', $uname, time()+3600); //expire in an hour
-          $session_id = session_create_id('pyxisreq_'); //generates session_id
-          setcookie('pyxisrequest_id', $session_id, time()+3600);
+          $session_id = session_create_id('admin_'); //generates session_id
+          setcookie('admin_id', $session_id, time()+3600);
           $time = date("Y-m-d H:i:s");
           try{
             $connect = new PDO("mysql:host=$hostname; dbname=logs", $usern, $pword);
