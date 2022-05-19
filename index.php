@@ -101,7 +101,7 @@
           $query = "INSERT INTO user_log ('username', 'session_id', 'timestamp') VALUES ('$uname', '$session_id', '$time')";
           $connect->query($query);
           $connect = null;
-          header("Location: pyxis-request.php");
+          header("Location: admin.php");
         }else{
             $error = "User not authorized";
             echo "<div class='alert alert-danger'><span class='glyphicon glyphicon-alert'></span>". $error . "</div>";
