@@ -70,6 +70,8 @@
             $group = str_replace("CN=", "", $group);
             array_push($groupArray, $group);
         }
+
+        //TODO: How to manage if user is in multiple groups (Build Logic)
         if(in_array("OR1706_MWMC All MGMT_SUPV", $groupArray, true)){
           session_start();
           setcookie('pyxisrequest', $uname, time()+3600); //expire in an hour
@@ -88,7 +90,7 @@
           header("Location: pyxis-request.php");
         }elseif(in_array("OR1706_Info Tech Dept_", $groupArray, true)){
           session_start();
-          setcookie('pyxisrequest', $uname, time()+3600); //expire in an hour
+          setcookie('adminrequest', $uname, time()+3600); //expire in an hour
           $session_id = session_create_id('admin_'); //generates session_id
           setcookie('admin_id', $session_id, time()+3600);
           $time = date("Y-m-d H:i:s");

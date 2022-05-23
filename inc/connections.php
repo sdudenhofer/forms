@@ -1,16 +1,18 @@
 <?php
 
-Class MConnect {
-    public $ip;
-    public $username;
-    public $password;
-    public $database;
+class mConnect
+{
+    public $ip = '';
+    public $username = '';
+    public $password = '';
+    public $database = '';
 
-    public function mconnect(){
+    static public function mconnect(){
         try{
-            $connect = new PDO("mysql:host=$this->ip; dbname=$this->database", $this->username, $this->password);
+            $connect = new PDO("mysql:host=$ip; dbname=$database", $this->username, $this->password);
           }catch(PDOException $e){
             $error = $e->getMessage();
           }
+        return $connect;
     }
 }
