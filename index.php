@@ -56,7 +56,7 @@
     ldap_start_tls($ldap);
     ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
     ldap_set_option($ldap, LDAP_OPT_REFERRALS,0);
-    if($bind = ldap_bind($ldap, "qhcus\\" .$uname, $upass)){
+    if($bind = ldap_bind($ldap, "" .$uname, $upass)){
         
         $groupArray = array(); //array to store group list
         $filter = "(|(displayname=$uname*)(givenname=$uname*)(cn=$uname*)(userprincipalname=$uname*))";
@@ -72,7 +72,7 @@
         }
 
         //TODO: How to manage if user is in multiple groups (Build Logic)
-        if(in_array("OR1706_MWMC All MGMT_SUPV", $groupArray, true)){
+        if(in_array("", $groupArray, true)){
           session_start();
           setcookie('pyxisrequest', $uname, time()+3600); //expire in an hour
           $session_id = session_create_id('pyxisreq_'); //generates session_id
@@ -88,7 +88,7 @@
           $connect->query($query);
           $connect = null;
           header("Location: pyxis-request.php");
-        }elseif(in_array("OR1706_Info Tech Dept_", $groupArray, true)){
+        }elseif(in_array("", $groupArray, true)){
           session_start();
           setcookie('adminrequest', $uname, time()+3600); //expire in an hour
           $session_id = session_create_id('admin_'); //generates session_id
