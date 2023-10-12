@@ -48,8 +48,8 @@
     $upass = $_POST['txt_password'];
     
     //Setting up LDAP Connection to allow user logon
-    $dn = 'DC=QHCUS,DC=COM';
-    $host = '10.26.88.140';
+    $dn = '';
+    $host = '';
     $ldap = ldap_connect($host);
 
     $username="qhcus\\" . $uname;
